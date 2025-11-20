@@ -1,0 +1,9 @@
+import pandas as pd
+
+def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
+    merged = pd.merge(customers, orders, how="left", left_on="id",   right_on="customerId")
+
+   # From merged_df, give me only those rows where merged_df['customerId'] is NaN.
+    nan = merged[merged["customerId"].isna()]
+    
+    return nan[["name"]].rename(columns = {"name" : "customers"})
