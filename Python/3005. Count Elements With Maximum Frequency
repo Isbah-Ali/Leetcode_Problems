@@ -1,0 +1,32 @@
+class Solution(object):
+    def maxFrequencyElements(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        frequencies = {}
+
+        for x in nums:
+            if x in frequencies:
+                frequencies[x] += 1
+            else:
+                frequencies[x] = 1
+        
+        # For Maximum Frequency
+        maxFreq = 0
+        for f in frequencies.values():
+            maxFreq = max(maxFreq , f)
+
+        total_max_freq = 0
+        for f in frequencies.values():
+            if f == maxFreq:
+                total_max_freq += 1 
+
+        return maxFreq * total_max_freq 
+
+
+      
+       
+
+
+        
